@@ -41,7 +41,7 @@ function validateForm() {
   if (usernameTouched) {
     if (!isUsernameValid) {
       usernameHelper.classList.add("text-danger");
-      usernameHelper.innerHTML = "Username must be between 8 and 15 characters. Only letters and numbers are allowed!";
+      usernameHelper.innerHTML = "Le nom d'utilisateur doit contenir entre 8 et 15 caractères. Seules les lettres et les chiffres sont autorisés !";
     } else {
       usernameHelper.classList.remove("text-danger");
       usernameHelper.innerHTML = "";
@@ -52,7 +52,7 @@ function validateForm() {
   if (emailTouched) {
     if (!isEmailValid) {
       emailHelper.classList.add("text-danger");
-      emailHelper.innerHTML = "Please enter a valid email address!";
+      emailHelper.innerHTML = "Veuillez saisir une adresse e-mail valide !";
     } else {
       emailHelper.classList.remove("text-danger");
       emailHelper.innerHTML = "";
