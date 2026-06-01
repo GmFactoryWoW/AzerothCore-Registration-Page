@@ -19,9 +19,10 @@ Before using this registration page, ensure that your server has the following P
 ## Installation
 1. Clone the repository to your web server.
 2. Ensure all required PHP extensions are enabled.
-3. Configure the `config.php` file with your database and server details.
-4. Deploy the registration page to your web server.
-5. Direct users to the registration page to start creating accounts.
+3. Copy `config.php.default` as `config.php` 
+4. Configure the `config.php` file with your database and server details.
+5. Deploy the registration page to your web server.
+6. Direct users to the registration page to start creating accounts.
 
 ## Credits
 - **Project Creator**: [Gabriel Ferreira](https://github.com/ferreira9006)

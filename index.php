@@ -20,7 +20,7 @@ try {
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?></title>
+    <title><?php echo $title; ?></title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
@@ -31,10 +31,10 @@ try {
           <div class="card shadow border-white px-5 py-4 custom-card">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-center mb-2">
-                <h1 class="mb-0"><?= $slogan ?></h1>
+                <h1 class="mb-0"><?php echo $slogan; ?></h1>
                 <button id="themeToggle" type="button" class="btn btn-outline-secondary btn-sm">Toggle Theme</button>
               </div>
-              <p><?= $description ?></p>
+              <p><?php echo $description; ?></p>
               <hr class="mb-5">
 
               <?php include 'app/controllers/register.php' ?>
@@ -42,7 +42,7 @@ try {
                 <div class="form-group row mb-3">
                   <label for="username" class="col-sm-3 col-form-label">Username</label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" id="username" name="username" maxlength="<?= USERNAME_MAX_LENGTH ?>" minlength="<?= USERNAME_MIN_LENGTH ?>" required>
+                    <input type="text" class="form-control" id="username" name="username" maxlength="<?php echo USERNAME_MAX_LENGTH; ?>" minlength="<?php echo USERNAME_MIN_LENGTH; ?>" required>
                     <div id="usernameHelper" class="form-text"></div>
                   </div>
                 </div>
@@ -59,7 +59,7 @@ try {
                 <div class="form-group row mb-3">
                   <label for="password" class="col-sm-3 col-form-label">Password</label>
                   <div class="col-sm-9">
-                    <input type="password" class="form-control" id="password" name="password" maxlength="<?= PASSWORD_MAX_LENGTH ?>" minlength="<?= PASSWORD_MIN_LENGTH ?>" required>
+                    <input type="password" class="form-control" id="password" name="password" maxlength="<?php echo PASSWORD_MAX_LENGTH; ?>" minlength="<?php echo PASSWORD_MIN_LENGTH; ?>" required>
                     <div id="passwordCharsHelper" class="form-text"></div>
                   </div>
                 </div>
@@ -74,11 +74,11 @@ try {
 
                 <div class="alert alert-info mt-3" role="alert">
                   <ul class="mb-0">
-                    <li>Username: <?= USERNAME_MIN_LENGTH ?>-<?= USERNAME_MAX_LENGTH ?> characters.</li>
+                    <li>Username: <?php echo USERNAME_MIN_LENGTH; ?>-<?php echo USERNAME_MAX_LENGTH; ?> characters.</li>
                     <?php if (EMAIL_ENABLED): ?>
                     <li>Email: up to 255 characters, must be valid format.</li>
                     <?php endif; ?>
-                    <li>Password: <?= PASSWORD_MIN_LENGTH ?>-<?= PASSWORD_MAX_LENGTH ?> characters.</li>
+                    <li>Password: <?php echo PASSWORD_MIN_LENGTH; ?>-<?php echo PASSWORD_MAX_LENGTH; ?> characters.</li>
                     <li>Passwords must match.</li>
                   </ul>
                 </div>
@@ -98,16 +98,16 @@ try {
       </div>
     </div>
     <script>
-      const USERNAME_MIN_LENGTH = <?= USERNAME_MIN_LENGTH ?>;
-      const USERNAME_MAX_LENGTH = <?= USERNAME_MAX_LENGTH ?>;
-      const PASSWORD_MIN_LENGTH = <?= PASSWORD_MIN_LENGTH ?>;
-      const PASSWORD_MAX_LENGTH = <?= PASSWORD_MAX_LENGTH ?>;
-      const EMAIL_ENABLED = <?= EMAIL_ENABLED ? 'true' : 'false' ?>;
+      const USERNAME_MIN_LENGTH = <?php echo USERNAME_MIN_LENGTH; ?>;
+      const USERNAME_MAX_LENGTH = <?php echo USERNAME_MAX_LENGTH; ?>;
+      const PASSWORD_MIN_LENGTH = <?php echo PASSWORD_MIN_LENGTH; ?>;
+      const PASSWORD_MAX_LENGTH = <?php echo PASSWORD_MAX_LENGTH; ?>;
+      const EMAIL_ENABLED = <?php echo EMAIL_ENABLED ? 'true' : 'false'; ?>;
     </script>
     <script src="assets/js/script.js"></script>
     <script>
       // Theme logic
-      const DEFAULT_THEME = "<?= strtolower(DEFAULT_THEME) ?>";
+      const DEFAULT_THEME = "<?php echo strtolower(DEFAULT_THEME); ?>";
       function setTheme(theme) {
         if (theme === 'dark') {
           document.body.classList.add('dark-mode');
