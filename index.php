@@ -32,9 +32,6 @@ $recruiters = Auth::getRecruiterCharacters();
         <div class="col-12">
             <div class="card shadow border-white px-5 py-4 custom-card">
                 <div class="card-body">
-                    <p><?php echo $description; ?></p>
-                    <hr class="mb-5">
-
                     <?php include 'app/controllers/register.php' ?>
                     <form action="" method="post">
                         <div class="form-group row mb-3">
@@ -82,15 +79,10 @@ $recruiters = Auth::getRecruiterCharacters();
                             </div>
                         </div>
 
-                        <div class="alert alert-info mt-3" role="alert">
-                            <ul class="mb-0">
-                                <li>Nom d'utilisateur : <?php echo USERNAME_MIN_LENGTH; ?>-<?php echo USERNAME_MAX_LENGTH; ?> caractères.</li>
-                                <?php if (EMAIL_ENABLED): ?>
-                                    <li>Adresse e-mail : jusqu'à 255 caractères, format valide requis.</li>
-                                <?php endif; ?>
-                                <li>Mot de passe : <?php echo PASSWORD_MIN_LENGTH; ?>-<?php echo PASSWORD_MAX_LENGTH; ?> caractères.</li>
-                                <li>Les mots de passe doivent correspondre.</li>
-                            </ul>
+                        <div class="registration-hint" role="note">
+                            Identifiant : <?php echo USERNAME_MIN_LENGTH; ?>-<?php echo USERNAME_MAX_LENGTH; ?> caractères
+                            <?php if (EMAIL_ENABLED): ?> · E-mail valide requis<?php endif; ?>
+                            · Mot de passe : <?php echo PASSWORD_MIN_LENGTH; ?>-<?php echo PASSWORD_MAX_LENGTH; ?> caractères
                         </div>
 
                         <button type="submit" id="submit" class="btn btn-primary float-end" disabled>S'inscrire</button>

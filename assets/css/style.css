@@ -1,188 +1,126 @@
 html, body {
   height: 100%;
   min-height: 100vh;
-  background-color: #0a2233;
-}
-html, body {
-  height: 100%;
-  min-height: 100vh;
+  background-color: #0b1624;
 }
 body.dark-mode {
-  background-color: #0a2233;
   color: #f8f9fa;
-  background-image: url("../images/01.avif");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-attachment: fixed;
+  overflow: hidden;
 }
 body.light-mode {
-  background-color: #f8f9fa;
-  color: #212529;
-  background-image: url("../images/01.avif");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-attachment: fixed;
-}
-.custom-card {
-  max-width: 50rem;
-  margin: 0 auto;
-  border-radius: 10px !important;
-  background: transparent;
-}
-body.light-mode .custom-card {
-  background: rgba(255,255,255,0.92);
-  color: #212529;
-}
-body.dark-mode .custom-card {
-  background: rgba(10,34,51,0.96);
+  background-color: #0b1624;
   color: #f8f9fa;
-}
-
-/* Toggle Theme button contrast */
-#themeToggle {
-  background: #212529;
-  color: #fff;
-  border: none;
-  transition: background 0.2s, color 0.2s;
-}
-body.light-mode #themeToggle {
-  background: #f8f9fa;
-  color: #212529;
-  border: 1px solid #212529;
-}
-body.dark-mode #themeToggle {
-  background: #212529;
-  color: #fff;
-  border: 1px solid #fff;
-}
-#themeToggle:hover, #themeToggle:focus {
-  filter: brightness(1.1);
-  outline: 2px solid #888;
-}
-
-/* Link color for dark mode */
-body.dark-mode a, body.dark-mode a:visited {
-  color: #4dc3ff;
-}
-body.light-mode a, body.light-mode a:visited {
-  color: #0a2233;
-}
-
-/* Register button color for both themes */
-body.dark-mode #submit {
-  background: #4dc3ff;
-  color: #0a2233;
-  border: none;
-}
-body.light-mode #submit {
-  background: #0a2233;
-  color: #fff;
-  border: none;
-}
-#submit:disabled {
-  opacity: 0.6;
-}
-
-/* Alert box background for dark mode */
-body.dark-mode .alert-info {
-  background: rgba(77,195,255,0.15);
-  color: #b8e6ff;
-  border-color: #4dc3ff;
-}
-body.light-mode .alert-info {
-  background: #e9f7fe;
-  color: #0a2233;
-  border-color: #b8e6ff;
-}
-
-/* Input backgrounds for dark mode */
-body.dark-mode .form-control {
-  background: #18344a;
-  color: #fff;
-  border: 1px solid #4dc3ff;
-}
-body.dark-mode .form-control:focus {
-  background: #204060;
-  color: #fff;
-  border-color: #4dc3ff;
-}
-body.light-mode .form-control {
-  background: #fff;
-  color: #212529;
-  border: 1px solid #0a2233;
-}
-body.light-mode .form-control:focus {
-  background: #f0f8ff;
-  color: #212529;
-  border-color: #0a2233;
-}
-
-/* Remove white from mb-0 ul in alert */
-body.dark-mode .alert-info ul.mb-0 {
-  background: transparent;
-  color: #b8e6ff;
 }
 
 /* Launcher integration */
-body.dark-mode {
-  overflow: hidden;
-  background-position: center center;
+.container {
+  width: 100%;
+  max-width: 1030px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 .custom-card {
-  max-width: 54rem;
-  border-color: #294b69 !important;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35) !important;
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #f8f9fa;
 }
-body.dark-mode .custom-card {
-  background: rgba(10, 29, 47, 0.97);
+.custom-card .card-body {
+  padding: 14px 18px;
 }
-.custom-card .card-body > p {
-  color: #b4c9dc;
-  margin-bottom: 0.75rem;
+.custom-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-.custom-card .card-body > hr {
-  border-color: #35536d;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem !important;
+.custom-card .form-group {
+  margin-bottom: 0 !important;
+  align-items: center;
 }
-body.dark-mode #submit {
-  background: #347eae;
+.custom-card .col-form-label {
+  padding-top: 0;
+  padding-bottom: 0;
+  color: #f4f7fb;
+  font-size: 0.92rem;
+  line-height: 1.2;
+}
+.custom-card .form-control {
+  min-height: 38px;
+  padding: 0.4rem 0.75rem;
+  background: #173650;
+  color: #f8f9fa;
+  border: 1px solid #3f95c8;
+  border-radius: 5px;
+  box-shadow: none;
+}
+.custom-card .form-control::placeholder {
+  color: #9db5c9;
+  opacity: 1;
+}
+.custom-card .form-control:focus {
+  background: #1a3c59;
   color: #fff;
-  border: 1px solid #59bdea;
-  min-width: 150px;
+  border-color: #63c7f6;
+  box-shadow: 0 0 0 1px rgba(99, 199, 246, 0.16);
+}
+.custom-card .form-text {
+  margin-top: 2px;
+  min-height: 0;
+  font-size: 0.72rem;
+  line-height: 1.15;
+}
+.registration-hint {
+  margin-top: 2px;
+  color: #8fa8bd;
+  font-size: 0.75rem;
+  line-height: 1.25;
+}
+body.dark-mode #submit,
+body.light-mode #submit {
+  align-self: flex-end;
+  min-width: 132px;
+  height: 38px;
+  margin-top: 2px;
+  padding: 0.35rem 1rem;
+  background: #3179a8;
+  color: #fff;
+  border: 1px solid #55b6e6;
+  border-radius: 4px;
+}
+#submit:disabled {
+  opacity: 0.45;
 }
 
-@media (max-height: 650px) {
-  .custom-card {
-    padding: 1rem 1.5rem !important;
+@media (max-height: 565px) {
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
   }
-  .custom-card .form-group {
-    margin-bottom: 0.5rem !important;
+  .custom-card .card-body {
+    padding: 10px 14px;
+  }
+  .custom-card form {
+    gap: 6px;
   }
   .custom-card .form-control {
     min-height: 36px;
-    padding-top: 0.375rem;
-    padding-bottom: 0.375rem;
+    height: 36px;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
   }
-  .custom-card .card-body > p {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+  .custom-card .col-form-label {
+    font-size: 0.88rem;
   }
-  .custom-card .card-body > hr {
-    margin-top: 0.25rem;
-    margin-bottom: 0.75rem !important;
+  .registration-hint {
+    font-size: 0.7rem;
   }
-  .custom-card .alert {
-    margin-top: 0.5rem !important;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.8rem;
-  }
-  .custom-card .alert ul {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 1.25rem;
+  body.dark-mode #submit,
+  body.light-mode #submit {
+    height: 36px;
   }
 }
