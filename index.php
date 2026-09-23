@@ -30,7 +30,7 @@ $recruiters = Auth::getRecruiterCharacters();
 <div class="registration-page">
     <div class="registration-content">
         <?php include 'app/controllers/register.php' ?>
-        <form action="" method="post" class="registration-form">
+        <form action="" method="post" class="registration-form" novalidate>
             <div class="registration-field">
                 <label for="username">Nom d'utilisateur</label>
                 <input type="text" class="form-control" id="username" name="username" maxlength="<?php echo USERNAME_MAX_LENGTH; ?>" minlength="<?php echo USERNAME_MIN_LENGTH; ?>" required>
@@ -85,6 +85,6 @@ $recruiters = Auth::getRecruiterCharacters();
     const PASSWORD_MAX_LENGTH = <?php echo PASSWORD_MAX_LENGTH; ?>;
     const EMAIL_ENABLED = <?php echo EMAIL_ENABLED ? 'true' : 'false'; ?>;
 </script>
-<script src="assets/js/script.js"></script>
+<script src="assets/js/script.js?v=<?php echo filemtime('assets/js/script.js'); ?>"></script>
 </body>
 </html>
