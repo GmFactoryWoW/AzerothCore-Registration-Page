@@ -124,3 +124,65 @@ body.dark-mode .alert-info ul.mb-0 {
   background: transparent;
   color: #b8e6ff;
 }
+
+/* Launcher integration */
+body.dark-mode {
+  overflow: hidden;
+  background-position: center center;
+}
+.custom-card {
+  max-width: 54rem;
+  border-color: #294b69 !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35) !important;
+}
+body.dark-mode .custom-card {
+  background: rgba(10, 29, 47, 0.97);
+}
+.custom-card .card-body > p {
+  color: #b4c9dc;
+  margin-bottom: 0.75rem;
+}
+.custom-card .card-body > hr {
+  border-color: #35536d;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem !important;
+}
+body.dark-mode #submit {
+  background: #347eae;
+  color: #fff;
+  border: 1px solid #59bdea;
+  min-width: 150px;
+}
+
+@media (max-height: 650px) {
+  .custom-card {
+    padding: 1rem 1.5rem !important;
+  }
+  .custom-card .form-group {
+    margin-bottom: 0.5rem !important;
+  }
+  .custom-card .form-control {
+    min-height: 36px;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+  }
+  .custom-card .card-body > p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  .custom-card .card-body > hr {
+    margin-top: 0.25rem;
+    margin-bottom: 0.75rem !important;
+  }
+  .custom-card .alert {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  .custom-card .alert ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.25rem;
+  }
+}

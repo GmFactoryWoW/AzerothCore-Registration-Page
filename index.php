@@ -13,6 +13,8 @@ try {
     header('Location: app/errors/db_error.php?' . $query);
     exit();
 }
+
+$recruiters = Auth::getRecruiterCharacters();
 ?>
 
 <!DOCTYPE html>
@@ -24,16 +26,12 @@ try {
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
-<body>
+<body class="dark-mode">
 <div class="container">
     <div class="row vh-100 align-items-center justify-content-center">
         <div class="col-12">
             <div class="card shadow border-white px-5 py-4 custom-card">
                 <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <h1 class="mb-0"><?php echo $slogan; ?></h1>
-                        <button id="themeToggle" type="button" class="btn btn-outline-secondary btn-sm">Changer le thème</button>
-                    </div>
                     <p><?php echo $description; ?></p>
                     <hr class="mb-5">
 
@@ -72,6 +70,18 @@ try {
                             </div>
                         </div>
 
+                        <div class="form-group row mb-3">
+                            <label for="recruiter" class="col-sm-3 col-form-label">Parrain (optionnel)</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="recruiter" name="recruiter" list="recruiterList" autocomplete="off" placeholder="Rechercher un personnage">
+                                <datalist id="recruiterList">
+                                    <?php foreach ($recruiters as $recruiter): ?>
+                                        <option value="<?php echo htmlspecialchars($recruiter['name'], ENT_QUOTES, 'UTF-8'); ?>"></option>
+                                    <?php endforeach; ?>
+                                </datalist>
+                            </div>
+                        </div>
+
                         <div class="alert alert-info mt-3" role="alert">
                             <ul class="mb-0">
                                 <li>Nom d'utilisateur : <?php echo USERNAME_MIN_LENGTH; ?>-<?php echo USERNAME_MAX_LENGTH; ?> caractères.</li>
@@ -98,32 +108,5 @@ try {
     const EMAIL_ENABLED = <?php echo EMAIL_ENABLED ? 'true' : 'false'; ?>;
 </script>
 <script src="assets/js/script.js"></script>
-<script>
-    // Theme logic
-    const DEFAULT_THEME = "<?php echo strtolower(DEFAULT_THEME); ?>";
-
-    function setTheme(theme) {
-        if (theme === 'dark') {
-            document.body.classList.add('dark-mode');
-            document.body.classList.remove('light-mode');
-        } else {
-            document.body.classList.add('light-mode');
-            document.body.classList.remove('dark-mode');
-        }
-        localStorage.setItem('theme', theme);
-    }
-
-    function getTheme() {
-        return localStorage.getItem('theme') || DEFAULT_THEME;
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        setTheme(getTheme());
-        document.getElementById('themeToggle').addEventListener('click', function () {
-            const current = getTheme();
-            setTheme(current === 'dark' ? 'light' : 'dark');
-        });
-    });
-</script>
 </body>
 </html>

@@ -4,6 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = filter_var($_POST['username']);
     $password = filter_var($_POST['password']);
     $passwordRepeat = filter_var($_POST['passwordRepeat']);
+    $recruiter = filter_var($_POST['recruiter'] ?? '');
 
     if (defined('EMAIL_ENABLED') && EMAIL_ENABLED) {
         $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
@@ -47,7 +48,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       return;
     }
 
-    if (Auth::Register($username, $email, $salt, $verifier)){
+    $recruiterAccountId = 0;
+    if ($recruiter !== '') {
+      $recruiterAccountId = Auth::getRecruiterAccountId($recruiter);
+      if ($recruiterAccountId === false) {
+        echo "<div class='alert alert-danger' role='alert'> Parrain invalide. </div>";
+        return;
+      }
+    }
+
+    if (Auth::Register($username, $email, $salt, $verifier, $recruiterAccountId)){
       echo "<div class='alert alert-success' role='alert'> Congratulations! Account <b>{$username}</b> was created. </div>";
       return;
     }
