@@ -42,7 +42,7 @@ function validateForm() {
   if (usernameTouched) {
     if (!isUsernameValid) {
       usernameHelper.classList.add("text-danger");
-      usernameHelper.innerHTML = `Username must be between ${USERNAME_MIN_LENGTH} and ${USERNAME_MAX_LENGTH} characters. Only letters and numbers are allowed!`;
+      usernameHelper.innerHTML = `Le nom d’utilisateur doit contenir entre ${USERNAME_MIN_LENGTH} et ${USERNAME_MAX_LENGTH} caractères. Seuls les lettres et les chiffres sont autorisés !`;
     } else {
       usernameHelper.classList.remove("text-danger");
       usernameHelper.innerHTML = "";
@@ -53,10 +53,10 @@ function validateForm() {
   if (EMAIL_ENABLED && emailTouched) {
     if (!isEmailValid) {
       emailHelper.classList.add("text-danger");
-      emailHelper.innerHTML = "Please enter a valid email address!";
+      emailHelper.innerHTML = "Veuillez saisir une adresse e-mail valide !";
     } else if (inputEmail.value.length > 255) {
       emailHelper.classList.add("text-danger");
-      emailHelper.innerHTML = "Email must be at most 255 characters.";
+      emailHelper.innerHTML = "L’adresse e-mail doit contenir au maximum 255 caractères.";
     } else {
       emailHelper.classList.remove("text-danger");
       emailHelper.innerHTML = "";
@@ -68,11 +68,11 @@ function validateForm() {
     if (!isPasswordLengthValid) {
       passwordCharsHelper.classList.add("text-danger");
       passwordCharsHelper.classList.remove("text-success");
-      passwordCharsHelper.innerHTML = `Password must be between ${PASSWORD_MIN_LENGTH} and ${PASSWORD_MAX_LENGTH} characters. Allowed: a-z, A-Z, 0-9, and ! # $ % & ' ( ) * + , - . / : ; < = > ? @ [ ] ^ _ \` {{ }} ~`;
+      passwordCharsHelper.innerHTML = `Le mot de passe doit contenir entre ${PASSWORD_MIN_LENGTH} et ${PASSWORD_MAX_LENGTH} caractères. Caractères autorisés : a-z, A-Z, 0-9 et ! # $ % & ' ( ) * + , - . / : ; < = > ? @ [ ] ^ _ \` {{ }} ~`;
     } else {
       passwordCharsHelper.classList.remove("text-danger");
       passwordCharsHelper.classList.add("text-success");
-      passwordCharsHelper.innerHTML = `Password: Minimum ${PASSWORD_MIN_LENGTH} character(s), maximum ${PASSWORD_MAX_LENGTH} characters. Allowed: a-z, A-Z, 0-9, and ! # $ % & ' ( ) * + , - . / : ; < = > ? @ [ ] ^ _ \` {{ }} ~`;
+      passwordCharsHelper.innerHTML = `Mot de passe : ${PASSWORD_MIN_LENGTH} caractère(s) minimum, ${PASSWORD_MAX_LENGTH} caractères maximum. Caractères autorisés : a-z, A-Z, 0-9 et ! # $ % & ' ( ) * + , - . / : ; < = > ? @ [ ] ^ _ \` {{ }} ~`;
     }
 
   }
