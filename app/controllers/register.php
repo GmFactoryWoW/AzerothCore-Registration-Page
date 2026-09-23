@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (defined('EMAIL_ENABLED') && EMAIL_ENABLED) {
         $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
         if (strlen($email) > 255) {
-            echo "<div class='alert alert-danger' role='alert'>Email must be at most 255 characters.</div>";
+            echo "<div class='alert alert-danger' role='alert'>L’adresse e-mail doit contenir au maximum 255 caractères.</div>";
             return;
         }
     } else {
@@ -18,11 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Validate min/max lengths
     if (strlen($username) < USERNAME_MIN_LENGTH || strlen($username) > USERNAME_MAX_LENGTH) {
-      echo "<div class='alert alert-danger' role='alert'>Username must be between ".USERNAME_MIN_LENGTH." and ".USERNAME_MAX_LENGTH." characters.</div>";
+      echo "<div class='alert alert-danger' role='alert'>Le nom d’utilisateur doit contenir entre ".USERNAME_MIN_LENGTH." et ".USERNAME_MAX_LENGTH." caractères.</div>";
       return;
     }
     if (strlen($password) < PASSWORD_MIN_LENGTH || strlen($password) > PASSWORD_MAX_LENGTH) {
-      echo "<div class='alert alert-danger' role='alert'>Password must be between ".PASSWORD_MIN_LENGTH." and ".PASSWORD_MAX_LENGTH." characters.</div>";
+      echo "<div class='alert alert-danger' role='alert'>Le mot de passe doit contenir entre ".PASSWORD_MIN_LENGTH." et ".PASSWORD_MAX_LENGTH." caractères.</div>";
       return;
     }
 
@@ -34,17 +34,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = strtoupper($email);
 
     if (Auth::checkUsername($username)) {
-      echo "<div class='alert alert-danger' role='alert'> The entered username already exists. </div>";
+      echo "<div class='alert alert-danger' role='alert'> Ce nom d’utilisateur existe déjà. </div>";
       return;
     }
 
     if (EMAIL_ENABLED && Auth::checkEmail($email)) {
-      echo "<div class='alert alert-danger' role='alert'> The entered email is already in use. </div>";
+      echo "<div class='alert alert-danger' role='alert'> Cette adresse e-mail est déjà utilisée. </div>";
       return;
     }
 
     if ($password !== $passwordRepeat) {
-      echo "<div class='alert alert-danger' role='alert'> Passwords do not match. </div>";
+      echo "<div class='alert alert-danger' role='alert'> Les mots de passe ne correspondent pas. </div>";
       return;
     }
 
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (Auth::Register($username, $email, $salt, $verifier, $recruiterAccountId)){
-      echo "<div class='alert alert-success' role='alert'> Congratulations! Account <b>{$username}</b> was created. </div>";
+      echo "<div class='alert alert-success' role='alert'> Félicitations ! Le compte <b>{$username}</b> a été créé. </div>";
       return;
     }
 }
